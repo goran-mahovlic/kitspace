@@ -16,8 +16,6 @@ import re
 import xml.etree.ElementTree as ET
 import pcbnew
 
-from util import remove_color, empty_svg
-from shrink_svg import shrink_svg
 
 plot_format = sys.argv[1]
 input_file = sys.argv[2]
@@ -25,6 +23,8 @@ plot_directory = os.path.abspath(sys.argv[3])
 if plot_format == "svg":
     plot_format = pcbnew.PLOT_FORMAT_SVG
     output_file = sys.argv[4]
+    from util import remove_color, empty_svg
+    from shrink_svg import shrink_svg
 elif plot_format == "gerber":
     plot_format = pcbnew.PLOT_FORMAT_GERBER
 else:
